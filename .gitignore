@@ -1,0 +1,17 @@
+# User credentials and local logs
+pyzeus_users.json
+pyzeus_reinforcement_log.csv
+pyzeus_reinforcement_log.json
+*.log
+*.csv
+.DS_Store
+__pycache__/
+*.pyc
+
+# Legacy template files
+.manus-*
+.manus-webdev/
+project.godot
+export_presets.cfg
+scenes/
+shaders/
