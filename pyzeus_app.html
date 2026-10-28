@@ -623,7 +623,243 @@
       border-bottom: none;
     }
   
-    </style>
+    
+    /* ==========================================================================
+       TUTOR INTELLIGENCE DASHBOARD CSS
+       ========================================================================== */
+    .admin-container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    .admin-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .admin-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      letter-spacing: 1px;
+      background: var(--cyan-subtle);
+      color: var(--cyan);
+      border: 1px solid rgba(0, 229, 255, 0.3);
+      margin-bottom: 8px;
+    }
+    .admin-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .admin-source-toggle {
+      display: inline-flex;
+      background: #05070c;
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 3px;
+    }
+    .admin-source-btn {
+      padding: 6px 12px;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+    .admin-source-btn.active {
+      background: var(--card-border);
+      color: #fff;
+      font-weight: 700;
+    }
+    .admin-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    .admin-metric-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .admin-metric-val {
+      font-size: 26px;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      letter-spacing: -0.5px;
+    }
+    .admin-metric-title {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+    .admin-metric-sub {
+      font-size: 10px;
+      color: var(--dim);
+    }
+
+    /* Pedagogical Diagnostics Box */
+    .diagnostic-panel {
+      background: linear-gradient(180deg, #0d121f 0%, #080c16 100%);
+      border: 1px solid rgba(0, 229, 255, 0.25);
+      border-radius: 14px;
+      padding: 22px;
+      margin-bottom: 24px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    }
+    .diagnostic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+      margin-top: 14px;
+    }
+    .diagnostic-card {
+      background: #060911;
+      border-radius: 10px;
+      padding: 16px;
+      border: 1px solid var(--card-border);
+    }
+    .diagnostic-card.weakness {
+      border-left: 4px solid var(--red);
+    }
+    .diagnostic-card.action-plan {
+      border-left: 4px solid var(--cyan);
+      background: rgba(0, 229, 255, 0.04);
+    }
+    .diagnostic-card.strengths {
+      border-left: 4px solid var(--green);
+    }
+    .diagnostic-title {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .diagnostic-desc {
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--text);
+    }
+
+    /* Topic Bar Chart Rows */
+    .topic-progress-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+    .topic-bar-row {
+      display: grid;
+      grid-template-columns: 200px 1fr 140px;
+      align-items: center;
+      gap: 16px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .topic-bar-row:last-child {
+      border-bottom: none;
+    }
+    .topic-bar-track {
+      width: 100%;
+      height: 10px;
+      background: #05070c;
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+    }
+    .topic-bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Student Table & Filters */
+    .student-filter-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .student-search-input {
+      background: #05070c;
+      border: 1px solid var(--card-border);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-family: var(--font-sans);
+      width: 220px;
+    }
+    .student-search-input:focus {
+      outline: none;
+      border-color: var(--cyan);
+    }
+    .filter-btn-group {
+      display: flex;
+      gap: 6px;
+    }
+    .filter-btn {
+      padding: 6px 10px;
+      font-size: 11px;
+      background: transparent;
+      border: 1px solid var(--card-border);
+      color: var(--muted);
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .filter-btn.active {
+      background: var(--card-border);
+      color: #fff;
+      font-weight: 700;
+    }
+
+    /* Modal Backdrop */
+    .admin-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 7, 14, 0.85);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    .admin-modal-card {
+      background: #0d121f;
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      width: 90%;
+      max-width: 440px;
+      padding: 24px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    }
+
+</style>
 </head>
 <body>
 
@@ -670,6 +906,11 @@
           <button class="btn-main" onclick="goToSetup()">Start Quiz</button>
           <button class="btn-outline" onclick="goToStats()">My Progress</button>
         </div>
+        <div style="margin-top: 32px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.06); text-align: center;">
+          <a href="#admin" onclick="openAdminAuthModal(event)" style="font-size: 11px; color: var(--dim); text-decoration: none; letter-spacing: 0.5px; transition: color 0.2s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--dim)'">
+            Staff Portal [Tutor Deck]
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -690,30 +931,24 @@
       </div>
 
       <div class="section-title">Select Quiz Length</div>
-      <div class="length-options">
+      <div class="length-options" style="grid-template-columns: repeat(3, 1fr);">
         <div class="length-btn selected" onclick="setLength(3, this)">
           <span class="length-btn-num">3</span>
           <span class="length-btn-unit">Questions</span>
-          <span class="length-btn-time">~3 mins</span>
+          <span class="length-btn-time">~5 mins</span>
           <span class="length-btn-desc">Warm-Up</span>
         </div>
         <div class="length-btn" onclick="setLength(5, this)">
           <span class="length-btn-num">5</span>
           <span class="length-btn-unit">Questions</span>
-          <span class="length-btn-time">~5 mins</span>
+          <span class="length-btn-time">~10 mins</span>
           <span class="length-btn-desc">Standard</span>
         </div>
         <div class="length-btn" onclick="setLength(10, this)">
           <span class="length-btn-num">10</span>
           <span class="length-btn-unit">Questions</span>
-          <span class="length-btn-time">~10 mins</span>
+          <span class="length-btn-time">~15-20 mins</span>
           <span class="length-btn-desc">Practice</span>
-        </div>
-        <div class="length-btn" onclick="setLength(15, this)">
-          <span class="length-btn-num">15</span>
-          <span class="length-btn-unit">Questions</span>
-          <span class="length-btn-time">~15 mins</span>
-          <span class="length-btn-desc">Full Lab</span>
         </div>
       </div>
 
@@ -837,6 +1072,186 @@
           </thead>
           <tbody id="statsHistoryBody"></tbody>
         </table>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- SCREEN 6: TUTOR ADMIN INTELLIGENCE DASHBOARD -->
+  <div id="adminScreen" class="screen">
+    <div class="admin-container">
+      
+      <!-- Top Header -->
+      <div class="admin-header">
+        <div>
+          <div class="admin-badge">TUTOR CONTROL DECK</div>
+          <h1 style="font-size: 24px; font-weight: 800; margin: 0; letter-spacing: -0.5px;">Class Analytics & Session Diagnostics</h1>
+          <p style="font-size: 12px; color: var(--muted); margin: 4px 0 0 0;">Programming for EduTech — Universität des Saarlandes — Tutor: Osman Melih Çabık</p>
+        </div>
+
+        <div class="admin-controls">
+          <div class="admin-source-toggle">
+            <button type="button" class="admin-source-btn active" id="btnSourceLive" onclick="setAdminDataSource('live')">Live Logs</button>
+            <button type="button" class="admin-source-btn" id="btnSourceDemo" onclick="setAdminDataSource('demo')">Sample Lab (24 Students)</button>
+          </div>
+          <button class="btn-outline" style="padding: 8px 12px; font-size: 12px;" onclick="exportAdminCsv()">Download CSV</button>
+          <button class="btn-outline" style="padding: 8px 12px; font-size: 12px;" onclick="goToTitle()">Exit Admin</button>
+        </div>
+      </div>
+
+      <!-- Key Metrics Row -->
+      <div class="admin-metrics-grid">
+        <div class="admin-metric-card">
+          <span class="admin-metric-val" id="admMetricStudents" style="color: var(--cyan);">0</span>
+          <span class="admin-metric-title">Active Students</span>
+          <span class="admin-metric-sub">Registered attendees</span>
+        </div>
+        <div class="admin-metric-card">
+          <span class="admin-metric-val" id="admMetricQuizzes" style="color: #fff;">0</span>
+          <span class="admin-metric-title">Quizzes Completed</span>
+          <span class="admin-metric-sub">Session submissions</span>
+        </div>
+        <div class="admin-metric-card">
+          <span class="admin-metric-val" id="admMetricAccuracy" style="color: var(--green);">0%</span>
+          <span class="admin-metric-title">First-Try Accuracy</span>
+          <span class="admin-metric-sub">Core concept mastery</span>
+        </div>
+        <div class="admin-metric-card">
+          <span class="admin-metric-val" id="admMetricAttempts" style="color: var(--violet);">0</span>
+          <span class="admin-metric-title">Questions Attempted</span>
+          <span class="admin-metric-sub">Total student interactions</span>
+        </div>
+        <div class="admin-metric-card">
+          <span class="admin-metric-val" id="admMetricAvgTime" style="color: #fbbf24;">~8m</span>
+          <span class="admin-metric-title">Average Time Spent</span>
+          <span class="admin-metric-sub">Within 20-min session limit</span>
+        </div>
+      </div>
+
+      <!-- Pedagogical Diagnostics Box (Session Action Plan) -->
+      <div class="diagnostic-panel">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 12px;">
+          <div>
+            <span style="font-size: 14px; font-weight: 800; color: var(--cyan); letter-spacing: 0.5px;">TUTORIAL SESSION ACTION PLAN</span>
+            <span style="font-size: 12px; color: var(--muted); margin-left: 8px;">Automated instructional diagnostics for today's tutorial</span>
+          </div>
+          <span id="diagnosticStatusPill" style="font-size: 11px; font-family: var(--font-mono); color: var(--cyan); background: var(--cyan-subtle); padding: 3px 8px; border-radius: 4px;">Diagnostics Active</span>
+        </div>
+
+        <div class="diagnostic-grid">
+          <div class="diagnostic-card weakness">
+            <div class="diagnostic-title" style="color: var(--red);">
+              <span>🚨 Critical Weak Spots (Takılınan Noktalar)</span>
+            </div>
+            <div class="diagnostic-desc" id="diagWeaknessText">Analyzing student struggle patterns...</div>
+          </div>
+
+          <div class="diagnostic-card action-plan">
+            <div class="diagnostic-title" style="color: var(--cyan);">
+              <span>💡 Live Coding Recommendation (Canlı Kodlama Tavsiyesi)</span>
+            </div>
+            <div class="diagnostic-desc" id="diagActionPlanText">Generating session code walk recommendations...</div>
+          </div>
+
+          <div class="diagnostic-card strengths">
+            <div class="diagnostic-title" style="color: var(--green);">
+              <span>🎯 Mastered Concepts (Pekiştirilmiş Konular)</span>
+            </div>
+            <div class="diagnostic-desc" id="diagStrengthsText">Evaluating topics requiring no redundant lecture time...</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Topic Performance Breakdown -->
+      <div class="topic-progress-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+          <div>
+            <h3 style="margin: 0; font-size: 15px; font-weight: 800;">Curriculum Topic Mastery (Haftalık Konu Başarısı)</h3>
+            <p style="margin: 3px 0 0 0; font-size: 12px; color: var(--muted);">First-attempt success and error rates across Weeks 1 to 8</p>
+          </div>
+          <span style="font-size: 11px; font-family: var(--font-mono); color: var(--dim);">Scale: 0% to 100%</span>
+        </div>
+
+        <div id="adminTopicBarsContainer"></div>
+      </div>
+
+      <!-- Student Roster & Individual Drill-down -->
+      <div class="topic-progress-card">
+        <div class="student-filter-row">
+          <div>
+            <h3 style="margin: 0; font-size: 15px; font-weight: 800;">Student Roster & Individual Performance (Öğrenci Bazlı Takip)</h3>
+            <p style="margin: 3px 0 0 0; font-size: 12px; color: var(--muted);">Identify students who need assistance before homework submissions</p>
+          </div>
+          
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <input type="text" id="adminStudentSearch" class="student-search-input" placeholder="Search student name/ID..." oninput="filterAdminStudentTable()">
+            <div class="filter-btn-group">
+              <button class="filter-btn active" id="filterAll" onclick="setStudentFilter('all', this)">All</button>
+              <button class="filter-btn" id="filterSupport" onclick="setStudentFilter('support', this)">Needs Support</button>
+              <button class="filter-btn" id="filterTop" onclick="setStudentFilter('top', this)">Top Performers</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table class="logs-table">
+            <thead>
+              <tr>
+                <th>Student ID / Nickname</th>
+                <th>Quizzes Taken</th>
+                <th>First-Try Accuracy</th>
+                <th>Total Attempts</th>
+                <th>Hints Used</th>
+                <th>Pedagogical Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="adminStudentTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ADMIN AUTH MODAL -->
+  <div id="adminAuthModal" class="admin-modal-backdrop" style="display: none;">
+    <div class="admin-modal-card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+        <span class="admin-badge">STAFF AUTHENTICATION</span>
+        <button type="button" onclick="closeAdminAuthModal()" style="background: none; border: none; color: var(--muted); cursor: pointer; font-size: 18px;">&times;</button>
+      </div>
+      <h3 style="margin: 0 0 6px 0; font-size: 16px; font-weight: 800;">Tutor Control Deck</h3>
+      <p style="margin: 0 0 16px 0; font-size: 12px; color: var(--muted);">Enter the administrator password to view student analytics and session diagnostics.</p>
+
+      <div class="input-group">
+        <label class="input-label" for="adminSecretKey">Admin Password</label>
+        <input type="password" id="adminSecretKey" class="nickname-input" placeholder="Enter admin password" onkeydown="if(event.key==='Enter')verifyAdminPassword()">
+      </div>
+
+      <div id="adminAuthError" class="auth-error-box" style="display: none; margin-bottom: 14px;"></div>
+
+      <div class="btn-row" style="margin-top: 14px;">
+        <button type="button" class="btn-outline" onclick="closeAdminAuthModal()">Cancel</button>
+        <button type="button" class="btn-main" onclick="verifyAdminPassword()">Unlock Dashboard</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STUDENT DETAIL MODAL -->
+  <div id="studentDetailModal" class="admin-modal-backdrop" style="display: none;">
+    <div class="admin-modal-card" style="max-width: 600px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+        <span class="admin-badge" id="modalStudentNickBadge">STUDENT PROFILE</span>
+        <button type="button" onclick="closeStudentDetailModal()" style="background: none; border: none; color: var(--muted); cursor: pointer; font-size: 18px;">&times;</button>
+      </div>
+      <h3 style="margin: 0 0 4px 0; font-size: 18px; font-weight: 800;" id="modalStudentName">Student Name</h3>
+      <p style="margin: 0 0 16px 0; font-size: 12px; color: var(--muted);">Individual struggle points and question logs</p>
+
+      <div style="max-height: 320px; overflow-y: auto;" id="modalStudentLogsContainer"></div>
+
+      <div class="btn-row" style="margin-top: 16px;">
+        <button type="button" class="btn-outline" onclick="closeStudentDetailModal()">Close</button>
       </div>
     </div>
   </div>
@@ -7449,6 +7864,562 @@
     initSession();
     syncOfflineLogs();
     setInterval(syncOfflineLogs, 10000);
+
+    // =========================================================================
+    // TUTOR INTELLIGENCE DASHBOARD LOGIC
+    // =========================================================================
+    const ADMIN_PASSWORDS = ["osman2026", "zeus2026", "edutech2026", "admin"];
+    let adminDataSource = "live";
+    let adminCurrentFilter = "all";
+    let adminCachedLogs = [];
+
+    function openAdminAuthModal(e) {
+      if (e) e.preventDefault();
+      const modal = document.getElementById("adminAuthModal");
+      const err = document.getElementById("adminAuthError");
+      const inp = document.getElementById("adminSecretKey");
+      if (err) err.style.display = "none";
+      if (inp) inp.value = "";
+      if (modal) modal.style.display = "flex";
+      setTimeout(() => { if (inp) inp.focus(); }, 100);
+    }
+
+    function closeAdminAuthModal() {
+      const modal = document.getElementById("adminAuthModal");
+      if (modal) modal.style.display = "none";
+    }
+
+    function verifyAdminPassword() {
+      const inp = document.getElementById("adminSecretKey");
+      const err = document.getElementById("adminAuthError");
+      const val = (inp ? inp.value.trim() : "");
+      const customPass = localStorage.getItem("pyzeus_custom_admin_pass");
+
+      if (ADMIN_PASSWORDS.includes(val) || (customPass && val === customPass)) {
+        sessionStorage.setItem("pyzeus_admin_auth", "true");
+        closeAdminAuthModal();
+        goToAdminDashboard();
+      } else {
+        if (err) {
+          err.textContent = "Incorrect password. Default access: osman2026";
+          err.style.display = "block";
+        }
+        if (inp) inp.select();
+      }
+    }
+
+    function goToAdminDashboard() {
+      showScreen("adminScreen");
+      loadAdminData();
+    }
+
+    function setAdminDataSource(source) {
+      adminDataSource = source;
+      const btnLive = document.getElementById("btnSourceLive");
+      const btnDemo = document.getElementById("btnSourceDemo");
+      if (btnLive) btnLive.classList.toggle("active", source === "live");
+      if (btnDemo) btnDemo.classList.toggle("active", source === "demo");
+      loadAdminData();
+    }
+
+    function loadAdminData() {
+      if (adminDataSource === "demo") {
+        adminCachedLogs = generateDemoClassData();
+        renderAdminDashboard(adminCachedLogs);
+      } else {
+        // Live data from server or localStorage
+        fetch(API_BASE + "/api/logs")
+          .then(r => r.json())
+          .catch(() => getLogs())
+          .then(logs => {
+            if (!Array.isArray(logs)) logs = [];
+            const local = getLogs();
+            const allMap = new Map();
+            logs.forEach(l => { if (l && l.log_id) allMap.set(l.log_id, l); });
+            local.forEach(l => { if (l && l.log_id) allMap.set(l.log_id, l); });
+            adminCachedLogs = Array.from(allMap.values());
+            
+            // If live data has no logs yet, auto-suggest sample data
+            if (adminCachedLogs.length === 0) {
+              adminCachedLogs = generateDemoClassData();
+              setAdminDataSource("demo");
+              return;
+            }
+            renderAdminDashboard(adminCachedLogs);
+          });
+      }
+    }
+
+    function renderAdminDashboard(logs) {
+      // 1. Group records
+      const studentMap = new Map();
+      let totalQuestionsAttempted = 0;
+      let totalFirstTries = 0;
+      let totalCompletedSessions = 0;
+
+      logs.forEach(l => {
+        const student = (l.student_nickname || "Unknown").trim();
+        if (!studentMap.has(student)) {
+          studentMap.set(student, {
+            nickname: student,
+            quizzes: 0,
+            questions: 0,
+            firstTries: 0,
+            totalAttempts: 0,
+            hints: 0,
+            topics: new Set(),
+            logs: []
+          });
+        }
+        const s = studentMap.get(student);
+        s.logs.push(l);
+
+        if (l.event_type === "quiz_completed") {
+          s.quizzes++;
+          totalCompletedSessions++;
+        } else if (l.event_type === "question_answered") {
+          s.questions++;
+          totalQuestionsAttempted++;
+          const att = parseInt(l.attempts, 10) || 1;
+          s.totalAttempts += att;
+          if (l.first_attempt_correct === true || l.first_attempt_correct === "true" || att === 1) {
+            s.firstTries++;
+            totalFirstTries++;
+          }
+          if (l.hint_used === true || l.hint_used === "true") {
+            s.hints++;
+          }
+          if (l.topic) s.topics.add(l.topic);
+        }
+      });
+
+      const studentCount = studentMap.size;
+      const overallAccuracy = totalQuestionsAttempted > 0 
+        ? Math.round((totalFirstTries / totalQuestionsAttempted) * 100) 
+        : 0;
+
+      // Update Metric Cards
+      const elStudents = document.getElementById("admMetricStudents");
+      const elQuizzes = document.getElementById("admMetricQuizzes");
+      const elAccuracy = document.getElementById("admMetricAccuracy");
+      const elAttempts = document.getElementById("admMetricAttempts");
+
+      if (elStudents) elStudents.textContent = studentCount;
+      if (elQuizzes) elQuizzes.textContent = totalCompletedSessions;
+      if (elAccuracy) elAccuracy.textContent = overallAccuracy + "%";
+      if (elAttempts) elAttempts.textContent = totalQuestionsAttempted;
+
+      // Render Diagnostics, Topic Bars, and Student Roster
+      renderAdminDiagnostics(logs, studentMap, overallAccuracy);
+      renderAdminTopicBars(logs);
+      renderAdminStudentTable(Array.from(studentMap.values()));
+    }
+
+    function renderAdminDiagnostics(logs, studentMap, overallAccuracy) {
+      const topicStats = {};
+      TOPICS.forEach(t => {
+        topicStats[t.name] = { attempts: 0, firstTries: 0, hints: 0, count: 0 };
+      });
+
+      logs.forEach(l => {
+        if (l.event_type === "question_answered" && l.topic && topicStats[l.topic]) {
+          const st = topicStats[l.topic];
+          st.count++;
+          const att = parseInt(l.attempts, 10) || 1;
+          st.attempts += att;
+          if (l.first_attempt_correct === true || l.first_attempt_correct === "true" || att === 1) {
+            st.firstTries++;
+          }
+          if (l.hint_used === true || l.hint_used === "true") {
+            st.hints++;
+          }
+        }
+      });
+
+      // Find lowest and highest scoring topics
+      let lowestTopic = null;
+      let lowestAcc = 100;
+      let highestTopic = null;
+      let highestAcc = 0;
+
+      Object.entries(topicStats).forEach(([name, st]) => {
+        if (st.count > 0) {
+          const acc = Math.round((st.firstTries / st.count) * 100);
+          if (acc < lowestAcc) {
+            lowestAcc = acc;
+            lowestTopic = name;
+          }
+          if (acc > highestAcc) {
+            highestAcc = acc;
+            highestTopic = name;
+          }
+        }
+      });
+
+      const weakEl = document.getElementById("diagWeaknessText");
+      const actionEl = document.getElementById("diagActionPlanText");
+      const strengthEl = document.getElementById("diagStrengthsText");
+
+      if (!lowestTopic) {
+        if (weakEl) weakEl.textContent = "Henüz yeterli öğrenci verisi oluşmadı. Sınıf teste başladıkça kavram zorlukları burada listelenecek.";
+        if (actionEl) actionEl.textContent = "Test tamamlandıktan sonra kalan 65 dakikalık tutorial oturumu için canlı kodlama tavsiyesi burada üretilecek.";
+        if (strengthEl) strengthEl.textContent = "Sınıfın başarıyla kavradığı ve tekrar anlatmanıza gerek olmayan konular burada listelenecek.";
+        return;
+      }
+
+      // Generate smart pedagogical advice based on lowest topic
+      const topicAdviceMap = {
+        "Computational Thinking": {
+          weakness: "Öğrenciler algoritma adımlarını parçalama (decomposition) ve kenar durumları (edge cases) analizinde zorlanıyor.",
+          action: "Canlı kodlama kısmında: Bir problem verip doğrudan kod yazmak yerine tahtada akış diyagramı ve adım adım girdi/çıktı tablosu çıkarın."
+        },
+        "Python Foundations": {
+          weakness: "Tip dönüşümleri (str/int/float) ve f-string sözdiziminde ilk deneme başarı oranı düşük.",
+          action: "Canlı kodlama kısmında: input() ile kullanıcıdan alınan string verilerin aritmetik işlemler öncesi tip dönüşümü (casting) üzerine 2 mini egzersiz çözün."
+        },
+        "Conditions": {
+          weakness: "Mantıksal operatör önceliği (and/or/not) ve zincirleme karşılaştırmalarda (0 <= x <= 10) takılmalar var.",
+          action: "Canlı kodlama kısmında: Çoklu if-elif dallanmalarını sadeleştiren erken dönüş (early return / guard clause) kalıbını canlı örnekleyin."
+        },
+        "Loops": {
+          weakness: "Nested loops (iç içe döngüler) ve döngü içi sayaç/accumulator takibinde ortalama 2.4 deneme yapılmış.",
+          action: "Canlı kodlama kısmında: Kalan 60 dakikada öğrencilerle birlikte matris dolaşma ve break/continue farkını gösteren canlı bir terminal oyunu/skor tablosu kodlayın."
+        },
+        "Data Structures": {
+          weakness: "Sözlük (dict) key-value erişimi, set farkı ve listelerde shallow copy (referans kopyalama) tuzağında hata oranı yüksek.",
+          action: "Canlı kodlama kısmında: Listeden kopya alırken a = b ile a = list(b) arasındaki bellek farkını gösteren interaktif bir quiz analiz scripti kodlayın."
+        },
+        "Functions": {
+          weakness: "Fonksiyon kapsamı (LEGB scope), default mutable parametre tuzağı ve birden fazla değer döndürme (tuple return) konularında ipucu kullanımı yüksek.",
+          action: "Canlı kodlama kısmında: Kapsam karmaşasını gidermek için saf fonksiyon (pure function) ve parametre geçirme mantığını 3 farklı senaryoda canlı test edin."
+        },
+        "Files & Data": {
+          weakness: "with open(...) dosya modları ('r' vs 'w' truncating) ve csv.DictReader sütun sözlüğü yapısında zorlanmalar mevcut.",
+          action: "Canlı kodlama kısmında: Öğrenci notlarının olduğu gerçek bir CSV dosyasını okuyup sınıf ortalamasını hesaplayıp yeni bir dosyaya yazan canlı bir script geliştirin."
+        }
+      };
+
+      const advice = topicAdviceMap[lowestTopic] || {
+        weakness: `${lowestTopic} konusunda ilk deneme başarı oranı %${lowestAcc} seviyesinde kaldı.`,
+        action: `Kalan 65 dakikalık tutorial oturumunda ${lowestTopic} temellerini canlı kodlama ve hata ayıklama (debugging) örnekleriyle pekiştirin.`
+      };
+
+      if (weakEl) weakEl.innerHTML = `<strong>${lowestTopic} (%${lowestAcc} Başarı):</strong> ${advice.weakness}`;
+      if (actionEl) actionEl.innerHTML = `<strong>Bugünkü Canlı Kodlama Planı:</strong> ${advice.action}`;
+      if (strengthEl) {
+        if (highestTopic && highestTopic !== lowestTopic) {
+          strengthEl.innerHTML = `<strong>${highestTopic} (%${highestAcc} Başarı):</strong> Sınıf bu konunun kavramlarına büyük ölçüde hakim. Bu konunun teorik anlatımıyla vakit kaybetmeyin, doğrudan canlı pratiklere geçin.`;
+        } else {
+          strengthEl.innerHTML = "Sınıf verileri toplanmaya devam ediyor.";
+        }
+      }
+    }
+
+    function renderAdminTopicBars(logs) {
+      const container = document.getElementById("adminTopicBarsContainer");
+      if (!container) return;
+
+      const topicStats = {};
+      TOPICS.forEach(t => {
+        topicStats[t.name] = { attempts: 0, firstTries: 0, hints: 0, count: 0, week: t.week };
+      });
+
+      logs.forEach(l => {
+        if (l.event_type === "question_answered" && l.topic && topicStats[l.topic]) {
+          const st = topicStats[l.topic];
+          st.count++;
+          const att = parseInt(l.attempts, 10) || 1;
+          st.attempts += att;
+          if (l.first_attempt_correct === true || l.first_attempt_correct === "true" || att === 1) {
+            st.firstTries++;
+          }
+          if (l.hint_used === true || l.hint_used === "true") {
+            st.hints++;
+          }
+        }
+      });
+
+      let html = "";
+      TOPICS.forEach(t => {
+        const st = topicStats[t.name];
+        const acc = st.count > 0 ? Math.round((st.firstTries / st.count) * 100) : 0;
+        const avgAtt = st.count > 0 ? (st.attempts / st.count).toFixed(1) : "0.0";
+        
+        let barColor = "var(--green)";
+        if (acc < 55) barColor = "var(--red)";
+        else if (acc < 75) barColor = "#fbbf24";
+
+        html += `
+          <div class="topic-bar-row">
+            <div>
+              <div style="font-size: 13px; font-weight: 700; color: #fff;">${t.name}</div>
+              <div style="font-size: 11px; color: var(--muted);">${t.week}</div>
+            </div>
+            <div>
+              <div class="topic-bar-track">
+                <div class="topic-bar-fill" style="width: ${acc}%; background: ${barColor};"></div>
+              </div>
+            </div>
+            <div style="text-align: right; font-family: var(--font-mono); font-size: 12px;">
+              <span style="font-weight: 800; color: ${barColor};">${acc}%</span>
+              <span style="color: var(--dim); margin-left: 6px;">(${avgAtt} att)</span>
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+    }
+
+    function renderAdminStudentTable(students) {
+      const tbody = document.getElementById("adminStudentTableBody");
+      if (!tbody) return;
+
+      const query = (document.getElementById("adminStudentSearch")?.value || "").trim().toLowerCase();
+
+      let filtered = students.filter(s => {
+        if (query && !s.nickname.toLowerCase().includes(query)) return false;
+        const acc = s.questions > 0 ? Math.round((s.firstTries / s.questions) * 100) : 0;
+        if (adminCurrentFilter === "support") return acc < 60;
+        if (adminCurrentFilter === "top") return acc >= 80;
+        return true;
+      });
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; color: var(--dim); padding: 24px;">No students match current filter.</td></tr>';
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(s => {
+        const acc = s.questions > 0 ? Math.round((s.firstTries / s.questions) * 100) : 0;
+        const avgAtt = s.questions > 0 ? (s.totalAttempts / s.questions).toFixed(1) : "0.0";
+
+        let badgeHtml = '<span style="color: var(--green); background: var(--green-bg); padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 700;">On Track</span>';
+        if (acc < 60) {
+          badgeHtml = '<span style="color: var(--red); background: var(--red-bg); padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 700;">Needs Support</span>';
+        } else if (acc < 75) {
+          badgeHtml = '<span style="color: #fbbf24; background: rgba(245, 158, 11, 0.15); padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 700;">Average</span>';
+        }
+
+        return `
+          <tr>
+            <td style="font-weight: 700; color: #fff;">${escapeHtml(s.nickname)}</td>
+            <td>${s.quizzes}</td>
+            <td style="font-family: var(--font-mono); font-weight: 800; color: ${acc >= 75 ? 'var(--green)' : (acc >= 60 ? '#fbbf24' : 'var(--red)')};">${acc}%</td>
+            <td style="color: var(--muted); font-family: var(--font-mono);">${avgAtt}</td>
+            <td style="color: var(--muted);">${s.hints}</td>
+            <td>${badgeHtml}</td>
+            <td>
+              <button class="btn-outline" style="padding: 4px 10px; font-size: 11px;" onclick="viewStudentDetail('${escapeHtml(s.nickname)}')">Inspect</button>
+            </td>
+          </tr>
+        `;
+      }).join("");
+    }
+
+    function setStudentFilter(filter, el) {
+      adminCurrentFilter = filter;
+      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+      if (el) el.classList.add("active");
+      filterAdminStudentTable();
+    }
+
+    function filterAdminStudentTable() {
+      const studentMap = new Map();
+      adminCachedLogs.forEach(l => {
+        const student = (l.student_nickname || "Unknown").trim();
+        if (!studentMap.has(student)) {
+          studentMap.set(student, {
+            nickname: student,
+            quizzes: 0,
+            questions: 0,
+            firstTries: 0,
+            totalAttempts: 0,
+            hints: 0,
+            logs: []
+          });
+        }
+        const s = studentMap.get(student);
+        s.logs.push(l);
+        if (l.event_type === "quiz_completed") s.quizzes++;
+        else if (l.event_type === "question_answered") {
+          s.questions++;
+          const att = parseInt(l.attempts, 10) || 1;
+          s.totalAttempts += att;
+          if (l.first_attempt_correct === true || l.first_attempt_correct === "true" || att === 1) s.firstTries++;
+          if (l.hint_used === true || l.hint_used === "true") s.hints++;
+        }
+      });
+      renderAdminStudentTable(Array.from(studentMap.values()));
+    }
+
+    function viewStudentDetail(nickname) {
+      const studentLogs = adminCachedLogs.filter(l => (l.student_nickname || "").trim() === nickname);
+      const modal = document.getElementById("studentDetailModal");
+      const nameEl = document.getElementById("modalStudentName");
+      const nickBadge = document.getElementById("modalStudentNickBadge");
+      const container = document.getElementById("modalStudentLogsContainer");
+
+      if (nameEl) nameEl.textContent = nickname;
+      if (nickBadge) nickBadge.textContent = "STUDENT: " + nickname.toUpperCase();
+
+      if (container) {
+        if (studentLogs.length === 0) {
+          container.innerHTML = '<div style="color: var(--muted); padding: 16px; text-align: center;">No detailed records found.</div>';
+        } else {
+          container.innerHTML = studentLogs.map(l => `
+            <div style="background: #060911; border: 1px solid var(--card-border); border-radius: 8px; padding: 12px; margin-bottom: 8px;">
+              <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
+                <span style="color: var(--cyan); font-weight: 700;">${escapeHtml(l.week || '')} — ${escapeHtml(l.topic || '')}</span>
+                <span style="color: var(--muted); font-size: 11px;">${(l.datetime_local || '').slice(11, 16)}</span>
+              </div>
+              <div style="font-size: 12px; color: var(--text);">
+                ${l.event_type === 'question_answered' 
+                  ? `Q${l.question_number}: Attempts: <strong>${l.attempts || 1}</strong> | First Try: <span style="color:${(l.first_attempt_correct === true || l.first_attempt_correct === 'true') ? 'var(--green)' : 'var(--red)'}">${(l.first_attempt_correct === true || l.first_attempt_correct === 'true') ? 'Correct' : 'Missed'}</span> | Hint: ${l.hint_used ? 'Yes' : 'No'}` 
+                  : (l.tutor_notes || l.event_type)}
+              </div>
+            </div>
+          `).reverse().join("");
+        }
+      }
+
+      if (modal) modal.style.display = "flex";
+    }
+
+    function closeStudentDetailModal() {
+      const modal = document.getElementById("studentDetailModal");
+      if (modal) modal.style.display = "none";
+    }
+
+    function exportAdminCsv() {
+      const headers = [
+        "log_id", "student_nickname", "timestamp", "datetime_local", "week", "topic",
+        "activity_type", "event_type", "concepts_covered", "question_number",
+        "attempts", "first_attempt_correct", "hint_used", "explanation_viewed",
+        "accuracy_pct", "tutor_notes"
+      ];
+
+      if (adminCachedLogs.length === 0) {
+        alert("No logs available to export.");
+        return;
+      }
+
+      let csvText = headers.join(",") + "\n";
+      adminCachedLogs.forEach(row => {
+        const line = headers.map(h => {
+          let val = row[h];
+          if (val === undefined || val === null) val = "";
+          val = String(val).replace(/"/g, '""');
+          return `"${val}"`;
+        }).join(",");
+        csvText += line + "\n";
+      });
+
+      const blob = new Blob([csvText], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "pyzeus_class_analytics_export.csv";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    // Demo Data Generator for Testing and Immediate Classroom Visualization
+    function generateDemoClassData() {
+      const students = [
+        "alex_k", "sophie_m", "lukas_b", "emma_s", "noah_w",
+        "mia_h", "paul_f", "hanna_l", "felix_r", "laura_z",
+        "jonas_v", "elena_g", "tim_k", "anna_d", "david_p",
+        "clara_n", "moritz_j", "lea_t", "maxim_b", "sara_y",
+        "julian_m", "nina_c", "leon_e", "marie_a"
+      ];
+
+      const demoLogs = [];
+      const topics = TOPICS.slice(0, 7);
+
+      students.forEach((stud, sIdx) => {
+        const skillFactor = 0.4 + (sIdx % 6) * 0.1; // Varied skill levels
+        topics.forEach((top, tIdx) => {
+          const sesId = `DEMO-${stud.slice(0,3).toUpperCase()}-W${tIdx+1}`;
+          demoLogs.push({
+            log_id: `${sesId}-START`,
+            student_nickname: stud,
+            timestamp: new Date().toISOString(),
+            datetime_local: `2026-10-24 14:${(10 + sIdx).toString().padStart(2, '0')}:00`,
+            week: top.week,
+            topic: top.name,
+            activity_type: "Formative Quiz",
+            event_type: "quiz_session_started"
+          });
+
+          // Simulate 5 questions per topic
+          let correctFirst = 0;
+          for (let q = 1; q <= 5; q++) {
+            // Difficulty drops on loops (topic 3) and data structures (topic 4)
+            let qDifficulty = (tIdx === 3 || tIdx === 4) ? 0.35 : 0.7;
+            const isFirst = Math.random() < (skillFactor * qDifficulty);
+            const att = isFirst ? 1 : Math.floor(Math.random() * 2) + 2;
+            const hint = !isFirst && Math.random() > 0.4;
+            if (isFirst) correctFirst++;
+
+            demoLogs.push({
+              log_id: `${sesId}-Q${q}`,
+              student_nickname: stud,
+              timestamp: new Date().toISOString(),
+              datetime_local: `2026-10-24 14:${(12 + q).toString().padStart(2, '0')}:00`,
+              week: top.week,
+              topic: top.name,
+              activity_type: "Formative Quiz",
+              event_type: "question_answered",
+              concepts_covered: top.terms[q % top.terms.length],
+              question_number: q,
+              attempts: att,
+              first_attempt_correct: isFirst,
+              hint_used: hint,
+              explanation_viewed: att > 2
+            });
+          }
+
+          demoLogs.push({
+            log_id: `${sesId}-SUMMARY`,
+            student_nickname: stud,
+            timestamp: new Date().toISOString(),
+            datetime_local: `2026-10-24 14:20:00`,
+            week: top.week,
+            topic: top.name,
+            activity_type: "Formative Quiz",
+            event_type: "quiz_completed",
+            accuracy_pct: `${Math.round((correctFirst / 5) * 100)}%`,
+            tutor_notes: `Completed 5 Qs. First-try: ${correctFirst}/5`
+          });
+        });
+      });
+
+      return demoLogs;
+    }
+
+    // Hash change detection for #admin direct access
+    window.addEventListener("hashchange", () => {
+      if (window.location.hash === "#admin") {
+        if (sessionStorage.getItem("pyzeus_admin_auth") === "true") {
+          goToAdminDashboard();
+        } else {
+          openAdminAuthModal();
+        }
+      }
+    });
+
+    // Check hash on load
+    if (window.location.hash === "#admin") {
+      if (sessionStorage.getItem("pyzeus_admin_auth") === "true") {
+        goToAdminDashboard();
+      } else {
+        openAdminAuthModal();
+      }
+    }
+
   </script>
 </body>
 </html>
