@@ -906,11 +906,7 @@
           <button class="btn-main" onclick="goToSetup()">Start Quiz</button>
           <button class="btn-outline" onclick="goToStats()">My Progress</button>
         </div>
-        <div style="margin-top: 32px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.06); text-align: center;">
-          <a href="#admin" onclick="openAdminAuthModal(event)" style="font-size: 11px; color: var(--dim); text-decoration: none; letter-spacing: 0.5px; transition: color 0.2s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--dim)'">
-            Staff Portal [Tutor Deck]
-          </a>
-        </div>
+
       </div>
     </div>
   </div>
@@ -8400,25 +8396,19 @@
       return demoLogs;
     }
 
-    // Hash change detection for #admin direct access
-    window.addEventListener("hashchange", () => {
-      if (window.location.hash === "#admin") {
+    // Hash change detection for private tutor access (#admin or #tutor)
+    function checkPrivateAdminHash() {
+      const hash = (window.location.hash || "").toLowerCase();
+      if (hash === "#admin" || hash === "#tutor") {
         if (sessionStorage.getItem("pyzeus_admin_auth") === "true") {
           goToAdminDashboard();
         } else {
           openAdminAuthModal();
         }
       }
-    });
-
-    // Check hash on load
-    if (window.location.hash === "#admin") {
-      if (sessionStorage.getItem("pyzeus_admin_auth") === "true") {
-        goToAdminDashboard();
-      } else {
-        openAdminAuthModal();
-      }
     }
+    window.addEventListener("hashchange", checkPrivateAdminHash);
+    checkPrivateAdminHash();
 
   </script>
 </body>
