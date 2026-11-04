@@ -1090,7 +1090,8 @@
             <button type="button" class="admin-source-btn active" id="btnSourceLive" onclick="setAdminDataSource('live')">Live Logs</button>
             <button type="button" class="admin-source-btn" id="btnSourceDemo" onclick="setAdminDataSource('demo')">Sample Lab (24 Students)</button>
           </div>
-          <button class="btn-outline" style="padding: 8px 12px; font-size: 12px;" onclick="exportAdminCsv()">Download CSV</button>
+          <button type="button" class="btn-outline" style="padding: 8px 12px; font-size: 12px;" onclick="configureCloudSync()" title="Configure Google Sheets Webhook">Google Sheet Bagla</button>
+          <button type="button" class="btn-outline" style="padding: 8px 12px; font-size: 12px;" onclick="exportAdminCsv()">Download CSV</button>
           <button class="btn-outline" style="padding: 8px 12px; font-size: 12px;" onclick="goToTitle()">Exit Admin</button>
         </div>
       </div>
@@ -6404,7 +6405,7 @@
 
     // --- API & GOOGLE SHEETS ENVIRONMENT ---
     // Google E-Tablo (Sheets) Apps Script Web App URL'inizi buraya yapıştırın:
-    const GOOGLE_SHEET_WEBAPP_URL = "";
+    let GOOGLE_SHEET_WEBAPP_URL = localStorage.getItem("pyzeus_sheet_url") || "";
 
     const API_BASE = (window.location.protocol === "http:" || window.location.protocol === "https:")
       ? ""
@@ -7110,30 +7111,86 @@
     }
 
     function loadAdminData() {
+      const pill = document.getElementById("diagnosticStatusPill");
       if (adminDataSource === "demo") {
         adminCachedLogs = generateDemoClassData();
         renderAdminDashboard(adminCachedLogs);
-      } else {
-        // Live data from server or localStorage
-        fetch(API_BASE + "/api/logs")
+        if (pill) pill.textContent = "Demo Class (24 Students)";
+        return;
+      }
+
+      const url = (GOOGLE_SHEET_WEBAPP_URL || "").trim();
+
+      // Priority 1: Fetch live aggregated student logs from Google Sheets Apps Script
+      if (url.startsWith("https://script.google.com")) {
+        if (pill) pill.textContent = "Google Sheetten yukleniyor...";
+        fetch(url)
           .then(r => r.json())
-          .catch(() => getLogs())
-          .then(logs => {
-            if (!Array.isArray(logs)) logs = [];
-            const local = getLogs();
-            const allMap = new Map();
-            logs.forEach(l => { if (l && l.log_id) allMap.set(l.log_id, l); });
-            local.forEach(l => { if (l && l.log_id) allMap.set(l.log_id, l); });
-            adminCachedLogs = Array.from(allMap.values());
-            
-            // If live data has no logs yet, auto-suggest sample data
-            if (adminCachedLogs.length === 0) {
-              adminCachedLogs = generateDemoClassData();
-              setAdminDataSource("demo");
-              return;
+          .then(cloudLogs => {
+            if (Array.isArray(cloudLogs) && cloudLogs.length > 0) {
+              const local = getLogs();
+              const allMap = new Map();
+              cloudLogs.forEach(l => { if (l && l.log_id) allMap.set(l.log_id, l); });
+              local.forEach(l => { if (l && l.log_id) allMap.set(l.log_id, l); });
+              adminCachedLogs = Array.from(allMap.values());
+              if (pill) pill.textContent = `Google Sheet Canli (${adminCachedLogs.length} kayit)`;
+              renderAdminDashboard(adminCachedLogs);
+            } else {
+              fallbackLocalAdminData("Google Sheet su an bos. Soru cozuldukce buraya akacak.");
             }
-            renderAdminDashboard(adminCachedLogs);
+          })
+          .catch(err => {
+            console.warn("Could not fetch from Google Sheets:", err);
+            fallbackLocalAdminData("Google Sheete ulasilamadi. Yerel kayitlar gosteriliyor.");
           });
+      } else {
+        fallbackLocalAdminData();
+      }
+    }
+
+    function fallbackLocalAdminData(statusMsg) {
+      const pill = document.getElementById("diagnosticStatusPill");
+      fetch(API_BASE + "/api/logs")
+        .then(r => r.json())
+        .catch(() => getLogs())
+        .then(logs => {
+          if (!Array.isArray(logs)) logs = [];
+          const local = getLogs();
+          const allMap = new Map();
+          logs.forEach(l => { if (l && l.log_id) allMap.set(l.log_id, l); });
+          local.forEach(l => { if (l && l.log_id) allMap.set(l.log_id, l); });
+          adminCachedLogs = Array.from(allMap.values());
+
+          if (adminCachedLogs.length === 0) {
+            adminCachedLogs = generateDemoClassData();
+            if (pill) pill.textContent = "Henuz canli veri yok (Demo gosteriliyor)";
+          } else {
+            if (pill) pill.textContent = statusMsg || `Yerel/Tarayici Kayitlari (${adminCachedLogs.length})`;
+          }
+          renderAdminDashboard(adminCachedLogs);
+        })
+        .catch(() => {
+          adminCachedLogs = getLogs();
+          if (adminCachedLogs.length === 0) adminCachedLogs = generateDemoClassData();
+          renderAdminDashboard(adminCachedLogs);
+        });
+    }
+
+    function configureCloudSync() {
+      const current = localStorage.getItem("pyzeus_sheet_url") || GOOGLE_SHEET_WEBAPP_URL || "";
+      const url = prompt(
+        "Google Sheets Apps Script Web App URL:\n(Ornek: https://script.google.com/macros/s/.../exec)",
+        current
+      );
+      if (url === null) return;
+      const cleanUrl = url.trim();
+      if (cleanUrl === "" || cleanUrl.startsWith("https://script.google.com")) {
+        localStorage.setItem("pyzeus_sheet_url", cleanUrl);
+        GOOGLE_SHEET_WEBAPP_URL = cleanUrl;
+        alert(cleanUrl ? "Google Sheets baglantisi basarili! Veriler guncelleniyor..." : "Google Sheets baglantisi kaldirildi.");
+        loadAdminData();
+      } else {
+        alert("Gecersiz URL! URL https://script.google.com ile baslamalidir.");
       }
     }
 
