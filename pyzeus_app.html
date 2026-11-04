@@ -1162,8 +1162,8 @@
       <div class="topic-progress-card">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
           <div>
-            <h3 style="margin: 0; font-size: 15px; font-weight: 800;">Curriculum Topic Mastery (Haftalık Konu Başarısı)</h3>
-            <p style="margin: 3px 0 0 0; font-size: 12px; color: var(--muted);">First-attempt success and error rates across Python Topics (Weeks 3 to 8)</p>
+            <h3 style="margin: 0; font-size: 15px; font-weight: 800;">Curriculum Topic Mastery (Chapter / Konu Başarısı)</h3>
+            <p style="margin: 3px 0 0 0; font-size: 12px; color: var(--muted);">First-attempt success and error rates across Python Chapters (Chapters 3 to 8)</p>
           </div>
           <span style="font-size: 11px; font-family: var(--font-mono); color: var(--dim);">Scale: 0% to 100%</span>
         </div>
@@ -1257,7 +1257,8 @@
       {
             "name": "Python Foundations",
             "short": "Foundations",
-            "week": "Week 3",
+            "chapter": "Chapter 3",
+            "week": "Chapter 3",
             "terms": [
                   "variables",
                   "data types",
@@ -2108,7 +2109,8 @@
       {
             "name": "Conditions",
             "short": "Conditions",
-            "week": "Week 4",
+            "chapter": "Chapter 4",
+            "week": "Chapter 4",
             "terms": [
                   "if statements",
                   "elif",
@@ -2953,7 +2955,8 @@
       {
             "name": "Loops",
             "short": "Loops",
-            "week": "Week 5",
+            "chapter": "Chapter 5",
+            "week": "Chapter 5",
             "terms": [
                   "for loop",
                   "while loop",
@@ -3830,7 +3833,8 @@
       {
             "name": "Data Structures",
             "short": "Data",
-            "week": "Week 6",
+            "chapter": "Chapter 6",
+            "week": "Chapter 6",
             "terms": [
                   "list",
                   "tuple",
@@ -4677,7 +4681,8 @@
       {
             "name": "Functions",
             "short": "Functions",
-            "week": "Week 7",
+            "chapter": "Chapter 7",
+            "week": "Chapter 7",
             "terms": [
                   "def",
                   "parameters",
@@ -5542,7 +5547,8 @@
       {
             "name": "Files & Data",
             "short": "Files",
-            "week": "Week 8",
+            "chapter": "Chapter 8",
+            "week": "Chapter 8",
             "terms": [
                   "open",
                   "read",
@@ -6664,7 +6670,7 @@
       TOPICS.forEach((t, i) => {
         const opt = document.createElement("option");
         opt.value = i;
-        opt.textContent = `${t.week} — ${t.name}`;
+        opt.textContent = `${t.chapter || t.week} — ${t.name}`;
         select.appendChild(opt);
       });
     }
