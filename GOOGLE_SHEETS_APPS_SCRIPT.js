@@ -1,7 +1,5 @@
 // =========================================================================
-// PYZEUS — Google Sheets Otomatik Veri Toplayıcı ve Dashboard API (Apps Script)
-// Üniversite: Universität des Saarlandes - Programming for EduTech
-// Tutor: Osman Melih Çabık
+// PYZEUS — automatic data gathering system
 // =========================================================================
 
 var SHEET_NAME = "PyZeus_Logs";
@@ -28,7 +26,7 @@ var HEADERS = [
 function getOrCreateSheet() {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var sheet = ss.getSheetByName(SHEET_NAME);
-  
+
   if (!sheet) {
     // Mevcut saat takip tablosuna dokunmaz, yeni temiz bir sayfa açar
     sheet = ss.insertSheet(SHEET_NAME);
@@ -40,7 +38,7 @@ function getOrCreateSheet() {
     sheet.getRange(1, 1, 1, HEADERS.length).setFontWeight("bold");
     sheet.setFrozenRows(1);
   }
-  
+
   return sheet;
 }
 
@@ -51,7 +49,7 @@ function doPost(e) {
   try {
     var sheet = getOrCreateSheet();
     var data = JSON.parse(e.postData.contents);
-    
+
     sheet.appendRow([
       data.log_id || "",
       data.student_nickname || "",
@@ -70,7 +68,7 @@ function doPost(e) {
       data.accuracy_pct || "",
       data.tutor_notes || ""
     ]);
-    
+
     return ContentService.createTextOutput(JSON.stringify({ status: "success" }))
       .setMimeType(ContentService.MimeType.JSON);
   } catch (err) {
@@ -86,15 +84,15 @@ function doGet(e) {
   try {
     var sheet = getOrCreateSheet();
     var data = sheet.getDataRange().getValues();
-    
+
     if (data.length <= 1) {
       return ContentService.createTextOutput(JSON.stringify([]))
         .setMimeType(ContentService.MimeType.JSON);
     }
-    
+
     var headers = data[0];
     var logs = [];
-    
+
     for (var i = 1; i < data.length; i++) {
       var row = {};
       for (var j = 0; j < headers.length; j++) {
@@ -102,7 +100,7 @@ function doGet(e) {
       }
       logs.push(row);
     }
-    
+
     return ContentService.createTextOutput(JSON.stringify(logs))
       .setMimeType(ContentService.MimeType.JSON);
   } catch (err) {

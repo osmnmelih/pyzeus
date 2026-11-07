@@ -877,8 +877,8 @@
         </div>
 
         <div class="input-group">
-          <label class="input-label" for="authUsername">Username / Student ID</label>
-          <input type="text" id="authUsername" class="nickname-input" placeholder="e.g. alex, s123456" maxlength="30" autocomplete="username" spellcheck="false" onkeydown="if(event.key==='Enter')focusPasswordOrSubmit()">
+          <label class="input-label" for="authUsername">Username</label>
+          <input type="text" id="authUsername" class="nickname-input" placeholder="e.g. alex or nickname" maxlength="30" autocomplete="username" spellcheck="false" onkeydown="if(event.key==='Enter')focusPasswordOrSubmit()">
         </div>
 
         <div class="input-group">
@@ -1181,7 +1181,7 @@
           </div>
           
           <div style="display: flex; gap: 8px; align-items: center;">
-            <input type="text" id="adminStudentSearch" class="student-search-input" placeholder="Search student name/ID..." oninput="filterAdminStudentTable()">
+            <input type="text" id="adminStudentSearch" class="student-search-input" placeholder="Search username or nickname..." oninput="filterAdminStudentTable()">
             <div class="filter-btn-group">
               <button class="filter-btn active" id="filterAll" onclick="setStudentFilter('all', this)">All</button>
               <button class="filter-btn" id="filterSupport" onclick="setStudentFilter('support', this)">Needs Support</button>
@@ -1194,7 +1194,7 @@
           <table class="logs-table">
             <thead>
               <tr>
-                <th>Student ID / Nickname</th>
+                <th>Username / Nickname</th>
                 <th>Quizzes Taken</th>
                 <th>First-Try Accuracy</th>
                 <th>Total Attempts</th>
@@ -6463,7 +6463,7 @@
       const password = (pInput && pInput.value ? pInput.value.trim() : "");
 
       if (!username) {
-        showAuthError("Please enter your username or student ID.");
+        showAuthError("Please enter your username.");
         if (uInput) uInput.focus();
         return;
       }
